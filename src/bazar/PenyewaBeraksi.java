@@ -27,7 +27,13 @@ public class PenyewaBeraksi {
             System.out.println("7. Keluar");
             System.out.print("Pilih menu : ");
 
-            pilihan = input.nextInt();
+try {
+    pilihan = input.nextInt();
+} catch (Exception e) {
+    System.out.println("Input menu harus berupa angka!");
+    input.nextLine();
+    pilihan = 0;
+}
 
             switch (pilihan) {
 
@@ -54,9 +60,31 @@ public class PenyewaBeraksi {
     System.out.print("Jenis Usaha        : ");
     String jenisUsaha = input.nextLine();
 
-    System.out.print("Nomor Stand        : ");
-    int nomorStand = input.nextInt();
-    input.nextLine();
+    int nomorStand = 0;
+
+while (true) {
+
+    try {
+
+        System.out.print("Nomor Stand (1-18) : ");
+        nomorStand = input.nextInt();
+        input.nextLine();
+
+        if (nomorStand < 1 || nomorStand > 18) {
+            System.out.println("Nomor stand harus antara 1 sampai 18.");
+            continue;
+        }
+
+        break;
+
+    } catch (Exception e) {
+
+        System.out.println("Nomor stand harus berupa angka!");
+        input.nextLine();
+
+    }
+
+}
 
     System.out.print("Status Pembayaran (Lunas/Belum Lunas): ");
     String status = input.nextLine();
@@ -151,9 +179,25 @@ public class PenyewaBeraksi {
             System.out.print("Jenis Usaha Baru : ");
             daftarPenyewa[i].setJenisUsaha(input.nextLine());
 
-            System.out.print("Nomor Stand Baru : ");
-            daftarPenyewa[i].setNomorStand(input.nextInt());
-            input.nextLine();
+            while (true) {
+
+    try {
+
+        System.out.print("Nomor Stand Baru : ");
+        int standBaru = input.nextInt();
+        input.nextLine();
+
+        daftarPenyewa[i].setNomorStand(standBaru);
+        break;
+
+    } catch (Exception e) {
+
+        System.out.println("Nomor stand harus berupa angka!");
+        input.nextLine();
+
+    }
+
+}
 
             System.out.print("Status Pembayaran Baru : ");
             daftarPenyewa[i].setStatusPembayaran(input.nextLine());

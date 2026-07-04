@@ -32,8 +32,48 @@ public class PenyewaBeraksi {
             switch (pilihan) {
 
                 case 1:
-                    System.out.println("Menu Tambah Penyewa");
-                    break;
+
+    if (jumlahPenyewa >= daftarPenyewa.length) {
+        System.out.println("Stand sudah penuh!");
+        break;
+    }
+
+    input.nextLine(); // Membersihkan buffer
+
+    System.out.println("\n===== TAMBAH PENYEWA =====");
+
+    System.out.print("Nama               : ");
+    String nama = input.nextLine();
+
+    System.out.print("NIK                : ");
+    String nik = input.nextLine();
+
+    System.out.print("No HP              : ");
+    String noHP = input.nextLine();
+
+    System.out.print("Jenis Usaha        : ");
+    String jenisUsaha = input.nextLine();
+
+    System.out.print("Nomor Stand        : ");
+    int nomorStand = input.nextInt();
+    input.nextLine();
+
+    System.out.print("Status Pembayaran (Lunas/Belum Lunas): ");
+    String status = input.nextLine();
+
+    daftarPenyewa[jumlahPenyewa] = new PenyewaDetail(
+            nama,
+            nik,
+            noHP,
+            jenisUsaha,
+            nomorStand,
+            status);
+
+    jumlahPenyewa++;
+
+    System.out.println("\nData berhasil disimpan!");
+
+    break;
 
                 case 2:
                     System.out.println("Menu Tampilkan Penyewa");

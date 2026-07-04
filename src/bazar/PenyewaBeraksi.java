@@ -175,8 +175,38 @@ public class PenyewaBeraksi {
     break;
 
                 case 5:
-                    System.out.println("Menu Hapus Penyewa");
-                    break;
+
+    input.nextLine();
+
+    System.out.print("Masukkan nama penyewa yang akan dihapus : ");
+    String hapusNama = input.nextLine();
+
+    boolean hapus = false;
+
+    for (int i = 0; i < jumlahPenyewa; i++) {
+
+        if (daftarPenyewa[i].getNama().equalsIgnoreCase(hapusNama)) {
+
+            for (int j = i; j < jumlahPenyewa - 1; j++) {
+                daftarPenyewa[j] = daftarPenyewa[j + 1];
+            }
+
+            daftarPenyewa[jumlahPenyewa - 1] = null;
+            jumlahPenyewa--;
+
+            System.out.println("Data berhasil dihapus.");
+
+            hapus = true;
+            break;
+        }
+
+    }
+
+    if (!hapus) {
+        System.out.println("Data penyewa tidak ditemukan.");
+    }
+
+    break;
 
                 case 6:
                     System.out.println("Menu Info Stand");

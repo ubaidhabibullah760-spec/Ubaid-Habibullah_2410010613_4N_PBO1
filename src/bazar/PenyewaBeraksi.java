@@ -76,8 +76,24 @@ public class PenyewaBeraksi {
     break;
 
                 case 2:
-                    System.out.println("Menu Tampilkan Penyewa");
-                    break;
+
+    System.out.println("\n===== DAFTAR PENYEWA =====");
+
+    if (jumlahPenyewa == 0) {
+        System.out.println("Belum ada data penyewa.");
+    } else {
+
+        for (int i = 0; i < jumlahPenyewa; i++) {
+
+            System.out.println("\nPenyewa ke-" + (i + 1));
+            System.out.println("----------------------------");
+            System.out.println(daftarPenyewa[i].displayInfo());
+
+        }
+
+    }
+
+    break;
 
                 case 3:
                     System.out.println("Menu Cari Penyewa");
